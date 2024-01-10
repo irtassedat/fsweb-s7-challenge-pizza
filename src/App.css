@@ -1,38 +1,334 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200&display=swap');
+
+
+:root {
+  --yellow: #FDC913;
+  --lightgray: #5F5F5F;
+  --darkgray: #292929;
+  --red: #CE2829;
+  --beige: #FAF7F2;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+body {
+  overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.order-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.order-page-content {
+  width: 600px;
+}
+
+.header-main {
+  background-color: var(--red);
+  height: 220px;
+  z-index: -1;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.header-nav a{
   color: white;
+  text-decoration: none;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.header-title {
+  font-family: 'Londrina Solid', sans-serif;
+  font-size: 25px;
+  align-self: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pizza {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.pizza-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.pizza-info h2 {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.pizza-info h3 {
+  font-size: 33px;
+  margin-bottom: 0.1rem;
+
+}
+
+.pizza-info p {
+  color: var(--lightgray);
+  font-size: 19px;
+}
+
+.pattern {
+  display: flex;
+  gap: 14rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 0
+}
+
+form h4 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.size-radio {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  font-weight: 300;
+
+}
+
+.radio-size .size-radio {
+  color: var(--lightgray);
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  gap: 2rem;
+  font-weight: bold;
+}
+
+
+.doughTypes {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.doughTypes select {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.additionalmat {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 800px;
+}
+
+.additionalmat p {
+  color: var(--lightgray);
+  font-weight: 600;
+}
+
+.additionalmat-inputs {
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+}
+
+.additionalmat-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+
+}
+
+.malzemeler-checkbox {
+  display: flex;
+  gap: 0.6rem;
+  font-weight: 700;
+  margin-right: 0.1rem;
+  color: var(--lightgray)
+}
+
+
+
+.ordernote {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ordernote input {
+  width: 100%;
+  border-radius: 5px;
+  padding: 1rem;
+  border: 1px solid lightgray;
+}
+
+.forder {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 5rem;
+}
+
+.forder h4 {
+  padding: 30px 40px 0 40px;
+}
+
+.forder .fpiece {
+  display: flex;
+  align-items: center;
+}
+
+
+.forder .increase, .decrease {
+  background-color: var(--yellow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+
+.forder .amount {
+  border: 1px solid lightgray;
+  width: 40px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 -2px;
+  z-index: -1;
+}
+
+.forder .fcheck {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  width: 350px;
+  gap: 1rem;
+}
+
+.forder .fchoice, .total {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 40px 0 40px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.forder .fchoice {
+  color: var(--lightgray);
+}
+
+.forder .total {
+  color: var(--red);
+}
+
+.forder input[type=submit] {
+  background-color: var(--yellow);
+  font-weight: 700;
+  font-size: 17px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  height: 50px;
+  margin-top: 20px;
+  color: var(--darkgray);
+  cursor: pointer;
+}
+
+.home-page {
+  background: url(./assets/mvp-banner.png);
+  height: 100vh;
+  width: 100vw;
+}  
+
+
+.home-page-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50vh;
+  padding-top: 9rem;
+}
+
+.home-page h1 {
+  color: white;
+  font-family: 'Londrina Solid', sans-serif;
+  font-size: 60px;
+  margin: 0px;
+}
+
+.home-page p {
+  color: white;
+  font-size: 90px;
+  text-align: center;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  margin-bottom: 30px;
+}
+
+#order-pizza {
+  color: black;
+  background-color: var(--yellow);
+  border-radius: 50px;
+  padding: 30px 68px 18px 60px;
+  font-size: 21px;
+  font-weight: 500;
+  text-decoration: none;
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 40px;
+}
+
+.success-page {
+  background-color: var(--red);
+  height: 100vh;
+  width: 100vw;
+}
+
+.success-page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  gap: 15rem;
+  padding-top: 5rem;
+}
+
+.success-page-content h1 {
+  font-family: 'Satisfy', cursive;
+
+  font-size: 60px;
+}
+
+.success-page-content p {
+  font-size: 60px;
+  font-weight: 200;
+  text-transform: uppercase;
+
 }

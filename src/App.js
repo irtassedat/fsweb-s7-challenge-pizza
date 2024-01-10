@@ -1,11 +1,21 @@
-import React from "react";
+// App.js
+
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import OrderPizzaPage from './pages/OrderPizzaPage';
+import './App.css';
+import SuccessPage from './pages/SuccessPage';
 
 const App = () => {
   return (
-    <>
-      <h1>Teknolojik Yemekler</h1>
-      <p>Burdaki kodu silip kendi headerınızı ekleyebilirsiniz</p>
-    </>
+    <Router>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/options"/>
+        <Route path="/pizza" component={OrderPizzaPage} />
+        <Route path="/success" exact component={SuccessPage} />
+      </Router>
   );
 };
+
 export default App;
