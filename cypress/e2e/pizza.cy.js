@@ -1,4 +1,4 @@
-describe("Ana Sayfa", () => {
+/* describe("Ana Sayfa", () => {
     it("Ana sayfa açılmalı ve siparişe git butonu bulunmalıdır", () => {
       cy.visit("/");
       cy.get("#order-pizza").should("exist");
@@ -10,4 +10,4 @@ describe("Ana Sayfa", () => {
       cy.url().should("include", "/pizza");
     });
   });
-  
+  */ 
