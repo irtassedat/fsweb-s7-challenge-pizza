@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Size from "./Size";
 import ExtraIngredients from "./ExtraIngredients";
 import DoughType from "./DoughType";
@@ -6,13 +6,13 @@ import Note from "./Note";
 import FinalOrder from "./FinalOrder";
 
 const Form = (props) => {
-const [total, setTotal] = useState();
+
 const [ingredientCount, setIngredientCount] = useState(0);
 const [ingredients, setIngredients] = useState([]);
 const [pizzaSize, setPizzaSize] = useState();
 const [doughType, setDoughType] = useState();
 const [orderNote, setOrderNote] = useState();
-const [totalPrice, setTotalPrice] = useState();
+/* const [totalPrice, setTotalPrice] = useState(); */
 
 const updateCount = (count) => setIngredientCount(count);
 const updateIngredientCount = (selectedIngredients) => setIngredients(selectedIngredients);
