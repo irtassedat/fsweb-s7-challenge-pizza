@@ -1,13 +1,19 @@
-/* describe("Ana Sayfa", () => {
-    it("Ana sayfa açılmalı ve siparişe git butonu bulunmalıdır", () => {
-      cy.visit("/");
-      cy.get("#order-pizza").should("exist");
-    });
-  
-    it("Siparişe Git butonuna tıklanmalıdır ve pizza formu açılmalıdır", () => {
-      cy.visit("/");
-      cy.get("#order-pizza").click();
-      cy.url().should("include", "/pizza");
-    });
+describe('Anasayfa Testi', () => {
+  it('Order Pizza butonuna tıklanabiliyor ve /pizza sayfasına yönlendiriyor', () => {
+    cy.visit('/'); 
+    cy.get('#order-pizza').click(); 
+    cy.url().should('include', '/pizza');
   });
-  */ 
+});
+
+/*
+describe('Pizza Sipariş Formu Gönderme Testi', () => {
+  it('Form başarıyla gönderiliyor', () => {
+    cy.visit('/pizza'); // Pizza sipariş sayfasını aç
+    // Form alanlarını doldur (gerekirse yukarıdaki gibi)
+    cy.get('#order-button').click(); // Sipariş ver butonuna tıkla
+    // Burada, formun başarıyla gönderildiğini kontrol etmek için ek kontroller yapabilirsiniz.
+    // Örneğin, bir başarı mesajı veya yönlendirme kontrolü yapılabilir.
+  });
+});
+*/
