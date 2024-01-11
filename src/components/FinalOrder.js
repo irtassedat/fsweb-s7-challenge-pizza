@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useHistory } from 'react-router-dom';
+
 
 
 const FinalOrder = (props) => {
+const history = useHistory();
+const [errorMessage, setErrorMessage] = useState("");
+const [successMessage, setSuccessMessage] = useState("");
+
 const [total,setTotal] = useState(0)
 const [ingredientCount,setIngredientCount]= useState(0)
 const ingredientTotal = ()=>{
@@ -29,16 +36,39 @@ function addCount() {
 const [count, setCount] = useState(1);
    
 useEffect(()=> {
-ingredientTotal()
-orderTotal()
-    },[props.ingredientCount,orderTotal])
-    const click = (e) => {
-        e.preventDefault();
-        alert(JSON.stringify(props));
-        window.location.replace("/success")
+    ingredientTotal();
+    orderTotal();
+         },[props.ingredientCount,orderTotal])
+        const click = (e) => {
+            e.preventDefault();
+            const formData = {
+                pizzaPrice: props.pizzaPrice,
+                selectedIngredients: props.selectedIngredients,
+                selectedSize : props.selectedSize,
+                selectedType : props.selectedType,
+                note: props.note,
+            };
+            axios.post("https://reqres.in/api/users", formData)
+                .then(response => {
+                    //sucsess
+                    console.log("sucsess: ", response.data);
+                    setSuccessMessage("Sipariş başarıyla gönderildi!");
+                    console.log("Success message set");
+                    setTimeout(() => {
+                        history.push("/success");
+                    }, 2000);    
+                })
+                .catch(error => {
+                    //error
+                    console.error("error", error);
+                    setErrorMessage("Bir hata oluştu, lütfen formu yeniden gönderin.");
+                });
+
     }
-    return (
+     return (
+        
         <div className="forder">
+            
             <div className="fpiece">
                 <span className="decrease" onClick={decreaseCount} style={{cursor:"pointer"}}>-</span>
                 <span className="amount">{count}</span>
@@ -55,6 +85,8 @@ orderTotal()
                     <span>{total}₺</span>
                 </div>
                 <input type="submit" id="order-button" value="SİPARİŞ VER" onClick={e=> {click(e)}}></input>
+                {successMessage && <p className="success-message">{successMessage}</p>}
+                {errorMessage && <p className="error-message">{errorMessage}</p>}
             </div>
         </div>
     )

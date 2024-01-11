@@ -21,6 +21,7 @@ const updateSize = (size) => setPizzaSize(size);
 const updateDoughType = (type) => setDoughType(type);
 
 
+
     return (
         <form id="pizza-form">
     <div className="pattern">
